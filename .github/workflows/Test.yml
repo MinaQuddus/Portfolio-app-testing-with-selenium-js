@@ -1,0 +1,31 @@
+name: Run Selenium Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  selenium-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Install Chrome
+      run: |
+        sudo apt update
+        sudo apt install -y google-chrome-stable
+
+    - name: Run Project.js file
+      run: node test/Project.js
