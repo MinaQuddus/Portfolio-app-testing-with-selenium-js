@@ -28,4 +28,4 @@ jobs:
         sudo apt install -y google-chrome-stable
 
     - name: Run Project.js file
-      run: node test/Project.js
+      run: node Test/Project.js
